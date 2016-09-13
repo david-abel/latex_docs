@@ -1,0 +1,55 @@
+% Add an hrule with some space
+\newcommand{\spacerule}{\begin{center}\hdashrule{2cm}{1pt}{1pt}\end{center}}
+
+% Put a fancy box around things.
+\newcommand{\davebox}[1]{
+\begin{mdframed}[roundcorner=4pt, backgroundcolor=gray!5]
+\vspace{1mm}
+{#1}
+\end{mdframed}
+}
+
+%  --- PROOFS ---
+
+% Claim
+\newcommand{\daveclaim}[2]{
+	\davebox{
+	\begin{center}
+		{\bf Claim {#1}}: {#2}
+	\end{center}
+	}
+}
+
+% Inner environment for Proofs
+\newmdenv[
+  topline=false,
+  bottomline=false,
+  rightline = false,
+  leftmargin=10pt,
+  rightmargin=0pt,
+  innertopmargin=0pt,
+  innerbottommargin=0pt
+]{innerproof}
+
+% Proof Command
+\newenvironment{daveproof}{\begin{proof} \text{\vspace{2mm}} \begin{innerproof}}{\end{innerproof}\end{proof}\vspace{4mm}}
+
+
+% Dave Definition
+\newcounter{DaveDefCounter}
+\setcounter{DaveDefCounter}{1}
+
+\newcommand{\davedef}[2]
+{\davebox{
+	{\bf Definition \theDaveDefCounter} (#1): {\it #2}}
+\stepcounter{DaveDefCounter}
+}
+
+% Dave Table
+\newenvironment{davetable}[1]
+{\begin{figure}[h]
+\centering
+\begin{tabular}{#1}\toprule}
+{\bottomrule
+\end{tabular}
+\end{figure}}
