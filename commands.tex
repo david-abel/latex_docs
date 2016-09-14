@@ -2,7 +2,7 @@
 \newcommand{\spacerule}{\begin{center}\hdashrule{2cm}{1pt}{1pt}\end{center}}
 
 % Put a fancy box around things.
-\newcommand{\davebox}[1]{
+\newcommand{\dbox}[1]{
 \begin{mdframed}[roundcorner=4pt, backgroundcolor=gray!5]
 \vspace{1mm}
 {#1}
@@ -12,8 +12,8 @@
 %  --- PROOFS ---
 
 % Claim
-\newcommand{\daveclaim}[2]{
-	\davebox{
+\newcommand{\dclaim}[2]{
+	\dbox{
 	\begin{center}
 		{\bf Claim {#1}}: {#2}
 	\end{center}
@@ -32,24 +32,27 @@
 ]{innerproof}
 
 % Proof Command
-\newenvironment{daveproof}{\begin{proof} \text{\vspace{2mm}} \begin{innerproof}}{\end{innerproof}\end{proof}\vspace{4mm}}
+\newenvironment{dproof}{\begin{proof} \text{\vspace{2mm}} \begin{innerproof}}{\end{innerproof}\end{proof}\vspace{4mm}}
 
 
 % Dave Definition
 \newcounter{DaveDefCounter}
 \setcounter{DaveDefCounter}{1}
 
-\newcommand{\davedef}[2]
-{\davebox{
+\newcommand{\ddef}[2]
+{\dbox{
 	{\bf Definition \theDaveDefCounter} (#1): {\it #2}}
 \stepcounter{DaveDefCounter}
 }
 
 % Dave Table
-\newenvironment{davetable}[1]
+\newenvironment{dtable}[1]
 {\begin{figure}[h]
 \centering
 \begin{tabular}{#1}\toprule}
 {\bottomrule
 \end{tabular}
 \end{figure}}
+
+% For numbering the last of an align*
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
