@@ -1,3 +1,12 @@
+% COMMANDS:
+% - spacerule: add a centered dashed line with space above and below
+% - \dbox{#1}: Adds a nicely formatted slightly grey box around #1
+% - \dclaim{#1}{#2}: Puts {\bf Claim {#1}}: inside a centered dbox
+% - \begin{dproof} ... \end{dproof}: A nicely formatted proof. Use \qedhere to place qed
+% - \ddef{#1}{#2}: Makes a definition (and counts defs). #1 goes inside parens at beginning, #2 is actual def.
+% - \begin{dtable}{#1} ... \end{dtable}: Makes a minimalist table. #1 is the alignment, for example: {clrr} would be a 4 column, center left right right table.
+
+
 % Add an hrule with some space
 \newcommand{\spacerule}{\begin{center}\hdashrule{2cm}{1pt}{1pt}\end{center}}
 
