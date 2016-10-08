@@ -1,14 +1,56 @@
 % COMMANDS:
+% - bigmid: Dynamically sized mid bar.
 % - spacerule: add a centered dashed line with space above and below
 % - \dbox{#1}: Adds a nicely formatted slightly grey box around #1
-% - \dclaim{#1}{#2}: Puts {\bf Claim {#1}}: inside a centered dbox
 % - \begin{dproof} ... \end{dproof}: A nicely formatted proof. Use \qedhere to place qed
 % - \ddef{#1}{#2}: Makes a definition (and counts defs). #1 goes inside parens at beginning, #2 is actual def.
 % - \begin{dtable}{#1} ... \end{dtable}: Makes a minimalist table. #1 is the alignment, for example: {clrr} would be a 4 column, center left right right table.
 
+% Dynamically sized mid bar.
+\newcommand{\bigmid}{\mathrel{\Big|}}
+
+
+% MY COLORS
+\definecolor{dblue}{RGB}{98, 140, 190}
+\definecolor{dlblue}{RGB}{216, 235, 255}
+\definecolor{dgreen}{RGB}{154, 195, 157}
+\definecolor{dpink}{RGB}{237, 196, 238}
+\definecolor{dyellow}{RGB}{255, 248, 199}
+\definecolor{dgray}{RGB}{46, 49, 49}
+
+% TODO
+\newcommand{\todo}[1]{\textcolor{dblue}{TODO: #1}}
+
+% Circled Numbers
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=0.7pt] (char) {#1};}}
+% From: http://tex.stackexchange.com/questions/7032/good-way-to-make-textcircled-numbers
+
+% Under set numbered subset of equation
+\newcommand{\numeq}[3]{\underset{\textcolor{#2}{\circled{#1}}}{\textcolor{#2}{#3}}}
+
+
+% Typical limit:
+\newcommand{\nlim}{\underset{n \rightarrow \infty}{\lim}}
+\newcommand{\nsum}{\sum_{i = 1}^n}
+\newcommand{\nprod}{\prod_{i = 1}^n}
+
+% Epsilon shortcut
+\newcommand{\eps}{\varepsilon}
 
 % Add an hrule with some space
 \newcommand{\spacerule}{\begin{center}\hdashrule{2cm}{1pt}{1pt}\end{center}}
+
+% Mathcal and Mathbb
+\newcommand{\mc}[1]{\mathcal{#1}}
+\newcommand{\indic}{\mathbbm{1}}
+\newcommand{\bE}{\mathbb{E}}
+
+% Basic Image
+\newcommand{\img}[2]{
+\begin{figure}[h]
+\centering
+\includegraphics[scale=#2]{#1}
+\end{figure}}
 
 % Put a fancy box around things.
 \newcommand{\dbox}[1]{
@@ -19,15 +61,6 @@
 }
 
 %  --- PROOFS ---
-
-% Claim
-\newcommand{\dclaim}[2]{
-	\dbox{
-	\begin{center}
-		{\bf Claim {#1}}: {#2}
-	\end{center}
-	}
-}
 
 % Inner environment for Proofs
 \newmdenv[
@@ -49,9 +82,12 @@
 \setcounter{DaveDefCounter}{1}
 
 \newcommand{\ddef}[2]
-{\dbox{
-	{\bf Definition \theDaveDefCounter} (#1): {\it #2}}
+{
+\begin{mdframed}[roundcorner=1pt, backgroundcolor=white]
+\vspace{1mm}
+{\bf Definition \theDaveDefCounter} (#1): {\it #2}
 \stepcounter{DaveDefCounter}
+\end{mdframed}
 }
 
 % Dave Table
