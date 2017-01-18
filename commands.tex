@@ -10,32 +10,35 @@
 \newcommand{\bigmid}{\mathrel{\Big|}}
 
 
-% MY COLORS
+% ---- Colors and Notes ----
 \definecolor{dblue}{RGB}{98, 140, 190}
 \definecolor{dlblue}{RGB}{216, 235, 255}
-\definecolor{dgreen}{RGB}{154, 195, 157}
-\definecolor{dpink}{RGB}{237, 196, 238}
+\definecolor{dgreen}{RGB}{124, 155, 127}
+\definecolor{dpink}{RGB}{207, 166, 208}
 \definecolor{dyellow}{RGB}{255, 248, 199}
 \definecolor{dgray}{RGB}{46, 49, 49}
 
 % TODO
-\newcommand{\todo}[1]{\textcolor{dblue}{TODO: #1}}
+\newcommand{\todo}[1]{\textcolor{red}{TODO: #1}}
+\newcommand{\dnote}[1]{\textcolor{dblue}{Dave: #1}}
 
 % Circled Numbers
-\newcommand*\circled[1]{\tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=0.7pt] (char) {#1};}}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=0.7pt] (char) {\footnotesize{#1}};}}
 % From: http://tex.stackexchange.com/questions/7032/good-way-to-make-textcircled-numbers
 
 % Under set numbered subset of equation
 \newcommand{\numeq}[3]{\underset{\textcolor{#2}{\circled{#1}}}{\textcolor{#2}{#3}}}
 
+% ---- Abbreviations -----
+\newcommand{\tc}[2]{\textcolor{#1}{#2}}
+\newcommand{\ubr}[1]{\underbrace{#1}}
+\newcommand{\uset}[2]{\underset{#1}{#2}}
+\newcommand{\eps}{\varepsilon}
 
 % Typical limit:
 \newcommand{\nlim}{\underset{n \rightarrow \infty}{\lim}}
 \newcommand{\nsum}{\sum_{i = 1}^n}
 \newcommand{\nprod}{\prod_{i = 1}^n}
-
-% Epsilon shortcut
-\newcommand{\eps}{\varepsilon}
 
 % Add an hrule with some space
 \newcommand{\spacerule}{\begin{center}\hdashrule{2cm}{1pt}{1pt}\end{center}}
@@ -45,12 +48,13 @@
 \newcommand{\indic}{\mathbbm{1}}
 \newcommand{\bE}{\mathbb{E}}
 
+% ---- Figures, Boxes, Theorems, Etc. ----
+
 % Basic Image
 \newcommand{\img}[2]{
-\begin{figure}[h]
-\centering
+\begin{center}
 \includegraphics[scale=#2]{#1}
-\end{figure}}
+\end{center}}
 
 % Put a fancy box around things.
 \newcommand{\dbox}[1]{
@@ -74,7 +78,21 @@
 ]{innerproof}
 
 % Proof Command
-\newenvironment{dproof}{\begin{proof} \text{\vspace{2mm}} \begin{innerproof}}{\end{innerproof}\end{proof}\vspace{4mm}}
+%\newenvironment{dproof}{\begin{proof} \text{\vspace{2mm}} \begin{innerproof}}{\end{innerproof}\end{proof}\vspace{4mm}}
+\newenvironment{dproof}[1][Proof]{\begin{proof}[#1] \text{\vspace{2mm}} \begin{innerproof}}{\end{innerproof}\end{proof}\vspace{4mm}}
+
+
+% Dave Theorem
+\newcounter{DaveThmCounter}
+\setcounter{DaveThmCounter}{1}
+
+\newcommand{\dthm}[1]
+{
+\begin{mdframed}[roundcorner=4pt, backgroundcolor=gray!5]
+\vspace{1mm}
+{{\bf Theorem \DaveThmCounter:} #1}
+\end{mdframed}
+}
 
 
 % Dave Definition
