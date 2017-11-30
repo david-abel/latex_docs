@@ -22,6 +22,9 @@
 \newcommand{\todo}[1]{\textcolor{red}{TODO: #1}}
 \newcommand{\dnote}[1]{\textcolor{dblue}{Dave: #1}}
 
+% URL
+\newcommand{\durl}[1]{\textcolor{dblue}{\underline{\url{#1}}}}
+
 % Circled Numbers
 \newcommand*\circled[1]{\tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=0.7pt] (char) {\footnotesize{#1}};}}
 % From: http://tex.stackexchange.com/questions/7032/good-way-to-make-textcircled-numbers
@@ -47,6 +50,9 @@
 \newcommand{\mc}[1]{\mathcal{#1}}
 \newcommand{\indic}{\mathbbm{1}}
 \newcommand{\bE}{\mathbb{E}}
+
+\newcommand{\ra}{\rightarrow}
+\newcommand{\la}{\leftarrow}
 
 % ---- Figures, Boxes, Theorems, Etc. ----
 
@@ -82,19 +88,6 @@
 \newenvironment{dproof}[1][Proof]{\begin{proof}[#1] \text{\vspace{2mm}} \begin{innerproof}}{\end{innerproof}\end{proof}\vspace{4mm}}
 
 
-% Dave Theorem
-\newcounter{DaveThmCounter}
-\setcounter{DaveThmCounter}{1}
-
-\newcommand{\dthm}[1]
-{
-\begin{mdframed}[roundcorner=4pt, backgroundcolor=gray!5]
-\vspace{1mm}
-{{\bf Theorem \DaveThmCounter:} #1}
-\end{mdframed}
-}
-
-
 % Dave Definition
 \newcounter{DaveDefCounter}
 \setcounter{DaveDefCounter}{1}
@@ -108,6 +101,21 @@
 \end{mdframed}
 }
 
+% Block Quote
+\newenvironment{dblockquote}[2]{
+\begin{blockquote}
+#2
+\vspace{-2mm}\hspace{10mm}{#1} \\
+\end{blockquote}}
+
+% Algorithm
+\newenvironment{dalg}[1]
+{\begin{algorithm}\caption{#1}\begin{algorithmic}}
+{\end{algorithmic}\end{algorithm}}
+
+
+
+
 % Dave Table
 \newenvironment{dtable}[1]
 {\begin{figure}[h]
@@ -119,3 +127,12 @@
 
 % For numbering the last of an align*
 \newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
+
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\newtheorem{conjecture}{Conjecture}[section]
+\newtheorem{remark}{Remark}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
