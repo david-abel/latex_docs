@@ -2,7 +2,7 @@
 
 % --- Packages ---
 \usepackage[usenames, dvipsnames]{color} % Cool colors
-\usepackage{enumerate, amsmath, amsthm, amssymb, algorithm, algpseudocode, pifont, subfig, fullpage, csquotes, dashrule, tikz, bbm, booktabs, bm}
+\usepackage{enumerate, amsmath, amsthm, amssymb, algorithm, algpseudocode, pifont, subfig, fullpage, csquotes, dashrule, tikz, bbm, booktabs, bm, verbatim, url}
 \usepackage[framemethod=TikZ]{mdframed}
 \usepackage[numbers]{natbib}
 
@@ -13,18 +13,6 @@
 % --- Commands ---
 \input{commands}
 
-% --- Fancy Headers ---
-\usepackage{fancyhdr}
-\fancypagestyle{dave}
-{
-	\fancyhf{} % sets both header and footer to nothing
-	\renewcommand{\headrulewidth}{0pt}
-	\cfoot{Page \thepage}
-	\rfoot{David Abel}
-	\lfoot{TITLE}
-}
-\pagestyle{dave}
-
 % --- Meta Info ---
 \title{TITLE}
 \author{David Abel}
@@ -33,10 +21,12 @@
 % --- Begin Document ---
 \begin{document}
 \maketitle
-% Footer
-\thispagestyle{dave}
-%\tableofcontents
-%\spacerule
+
+
+
+
+
+
 
 
 % --- Bibliography ---

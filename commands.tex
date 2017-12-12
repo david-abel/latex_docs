@@ -9,8 +9,7 @@
 % Dynamically sized mid bar.
 \newcommand{\bigmid}{\mathrel{\Big|}}
 
-
-% ---- Colors and Notes ----
+% ---- Nice Color Palette and Notes ----
 \definecolor{dblue}{RGB}{98, 140, 190}
 \definecolor{dlblue}{RGB}{216, 235, 255}
 \definecolor{dgreen}{RGB}{124, 155, 127}
@@ -84,11 +83,9 @@
 ]{innerproof}
 
 % Proof Command
-%\newenvironment{dproof}{\begin{proof} \text{\vspace{2mm}} \begin{innerproof}}{\end{innerproof}\end{proof}\vspace{4mm}}
 \newenvironment{dproof}[1][Proof]{\begin{proof}[#1] \text{\vspace{2mm}} \begin{innerproof}}{\end{innerproof}\end{proof}\vspace{4mm}}
 
-
-% Dave Definition
+% Quick Definition
 \newcounter{DaveDefCounter}
 \setcounter{DaveDefCounter}{1}
 
@@ -114,9 +111,7 @@
 {\end{algorithmic}\end{algorithm}}
 
 
-
-
-% Dave Table
+% Quick Table
 \newenvironment{dtable}[1]
 {\begin{figure}[h]
 \centering
