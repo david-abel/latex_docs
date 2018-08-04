@@ -1,25 +1,13 @@
-% COMMANDS:
-% - bigmid: Dynamically sized mid bar.
-% - spacerule: add a centered dashed line with space above and below
-% - \dbox{#1}: Adds a nicely formatted slightly grey box around #1
-% - \begin{dproof} ... \end{dproof}: A nicely formatted proof. Use \qedhere to place qed
-% - \ddef{#1}{#2}: Makes a definition (and counts defs). #1 goes inside parens at beginning, #2 is actual def.
-% - \begin{dtable}{#1} ... \end{dtable}: Makes a minimalist table. #1 is the alignment, for example: {clrr} would be a 4 column, center left right right table.
-
 % Dynamically sized mid bar.
 \newcommand{\bigmid}{\mathrel{\Big|}}
 
-% ---- Nice Color Palette and Notes ----
+% ---- Colors and Notes ----
 \definecolor{dblue}{RGB}{98, 140, 190}
 \definecolor{dlblue}{RGB}{216, 235, 255}
 \definecolor{dgreen}{RGB}{124, 155, 127}
 \definecolor{dpink}{RGB}{207, 166, 208}
 \definecolor{dyellow}{RGB}{255, 248, 199}
 \definecolor{dgray}{RGB}{46, 49, 49}
-
-% TODO
-\newcommand{\todo}[1]{\textcolor{red}{TODO: #1}}
-\newcommand{\dnote}[1]{\textcolor{dblue}{Dave: #1}}
 
 % URL
 \newcommand{\durl}[1]{\textcolor{dblue}{\underline{\url{#1}}}}
@@ -53,6 +41,10 @@
 \newcommand{\ra}{\rightarrow}
 \newcommand{\la}{\leftarrow}
 
+% argmin, argmax.
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
 % ---- Figures, Boxes, Theorems, Etc. ----
 
 % Basic Image
@@ -83,9 +75,11 @@
 ]{innerproof}
 
 % Proof Command
+%\newenvironment{dproof}{\begin{proof} \text{\vspace{2mm}} \begin{innerproof}}{\end{innerproof}\end{proof}\vspace{4mm}}
 \newenvironment{dproof}[1][Proof]{\begin{proof}[#1] \text{\vspace{2mm}} \begin{innerproof}}{\end{innerproof}\end{proof}\vspace{4mm}}
 
-% Quick Definition
+
+% Dave Definition
 \newcounter{DaveDefCounter}
 \setcounter{DaveDefCounter}{1}
 
@@ -110,8 +104,7 @@
 {\begin{algorithm}\caption{#1}\begin{algorithmic}}
 {\end{algorithmic}\end{algorithm}}
 
-
-% Quick Table
+% Dave Table
 \newenvironment{dtable}[1]
 {\begin{figure}[h]
 \centering
@@ -123,8 +116,6 @@
 % For numbering the last of an align*
 \newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
 
-\DeclareMathOperator*{\argmin}{arg\,min}
-\DeclareMathOperator*{\argmax}{arg\,max}
 
 \newtheorem{conjecture}{Conjecture}[section]
 \newtheorem{remark}{Remark}[section]
