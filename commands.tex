@@ -2,12 +2,19 @@
 \newcommand{\bigmid}{\mathrel{\Big|}}
 
 % ---- Colors and Notes ----
-\definecolor{dblue}{RGB}{98, 140, 190}
-\definecolor{dlblue}{RGB}{216, 235, 255}
-\definecolor{dgreen}{RGB}{124, 155, 127}
-\definecolor{dpink}{RGB}{207, 166, 208}
-\definecolor{dyellow}{RGB}{255, 248, 199}
-\definecolor{dgray}{RGB}{46, 49, 49}
+\definecolor{dblue}{RGB}{102, 120, 173}
+\definecolor{dgreen}{RGB}{118, 167, 125}
+\definecolor{dred}{RGB}{198, 113, 113}
+\definecolor{dorange}{RGB}{230, 169, 132}
+\definecolor{dtan}{RGB}{221, 215, 200}
+\definecolor{dgray}{RGB}{94, 94, 94}
+\definecolor{ddgray}{RGB}{46, 49, 49}
+
+% Lights
+\definecolor{dlblue}{RGB}{169, 193, 219}
+\definecolor{dlgreen}{RGB}{154, 195, 157}
+\definecolor{dyellow}{RGB}{246, 240, 223}
+
 
 % URL
 \newcommand{\durl}[1]{\textcolor{dblue}{\underline{\url{#1}}}}
@@ -24,6 +31,8 @@
 \newcommand{\ubr}[1]{\underbrace{#1}}
 \newcommand{\uset}[2]{\underset{#1}{#2}}
 \newcommand{\eps}{\varepsilon}
+\newcommand{\KL}[2]{D_{\text{KL}}\left(#1 \mid \mid #2\right)}
+\newcommand{\bKL}[2]{D_{\text{KL}}\left(#1 \bigmid \bigmid #2\right)}
 
 % Typical limit:
 \newcommand{\nlim}{\underset{n \rightarrow \infty}{\lim}}
@@ -122,8 +131,12 @@
 \newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
 
 
-\newtheorem{conjecture}{Conjecture}[section]
-\newtheorem{remark}{Remark}[section]
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{corollary}{Corollary}[theorem]
-\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{assumption}{Assumption}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{corollary}{Corollary}
+\newtheorem{claim}{Claim}
+\newtheorem{example}{Example}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{theorem}{Theorem}
